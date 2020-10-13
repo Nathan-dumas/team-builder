@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Form from './Components/Form'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const initialFormValues = {
+  name: '',
+  email: '',
+  role: '',
 }
 
-export default App;
+const team = [
+  {
+    name: 'Nathan',
+    email: 'Nathan@nathan.com',
+    role: '1'
+  },
+]
+
+function App() {
+
+  const [formValues, setFormValues] = useState(initialFormValues)
+
+  const [teamMembers, setTeamMembers] = useState(team)
+
+  const updateForm = (inputName, inputValue) => {
+    setFormValues({
+      ...formValues,
+      [inputName]: inputValue,
+    })
+  }
+
+  const submitForm = () => {
+    const newTeamMember = {
+      name: formValues.name.trim(),
+      email: formValues.email.trim(),
+      role: formValues.role,
+    }
+
+    if(!newTeamMember.name || !newTeamMember.email || !newTeamMember.role) return
+
+    setTeamMembers(...team, newTeamMember)
+    setFormValues(initialFormValues)
+  }
+
+  return (
+    <div className="App">
+      <Form />
+    </div>
+  )
+}
+
+export default App
