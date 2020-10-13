@@ -37,15 +37,19 @@ function App() {
       role: formValues.role,
     }
 
-    if(!newTeamMember.name || !newTeamMember.email || !newTeamMember.role) return
+    if (!newTeamMember.name || !newTeamMember.email || !newTeamMember.role) return
 
-    setTeamMembers(...team, newTeamMember)
+    setTeamMembers(...teamMembers, newTeamMember)
     setFormValues(initialFormValues)
   }
 
   return (
     <div className="App">
-      <Form />
+      <Form
+        values={formValues}
+        submit={submitForm}
+        update={updateForm}
+      />
     </div>
   )
 }

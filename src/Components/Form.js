@@ -16,10 +16,12 @@ export default function Form(props) {
 
     return (
         <div>
-            <form>
+            <form onSubmit={onSubmit}>
                 <label htmlFor='name'>Name:
                     <input
                         type='text'
+                        onChange={onChange}
+                        value={values.name}
                         name='name'
                         placeholder='Name'
                     />
@@ -27,6 +29,8 @@ export default function Form(props) {
                 <label>Email:
                     <input
                         type='email'
+                        onChange={onChange}
+                        value={values.email}
                         name='email'
                         placeholder='Email'
                     />
@@ -34,6 +38,8 @@ export default function Form(props) {
                 <label htmlFor='role'>Role:
                     <select
                         name='role'
+                        onChange={onChange}
+                        value={values.role}
                     >
                         <option value=''>-- Select Role --</option>
                         <option value='1'>Designer</option>
