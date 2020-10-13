@@ -42,9 +42,9 @@ export default function Form(props) {
                         value={values.role}
                     >
                         <option value=''>-- Select Role --</option>
-                        <option value='1'>Designer</option>
-                        <option value='2'>Frontend</option>
-                        <option value='3'>Backend</option>
+                        <option value='Designer'>Designer</option>
+                        <option value='Frontend'>Frontend</option>
+                        <option value='Backend'>Backend</option>
                     </select>
                 </label>
                 <button>Submit</button>
